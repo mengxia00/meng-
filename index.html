@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>兽药查询中心 - 专业兽药信息检索平台</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet">
+</head>
+<body>
+    <!-- 头部导航 -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <i class="ri-stethoscope-line"></i>
+                <h1>兽药查询中心</h1>
+            </div>
+            <nav class="nav">
+                <a href="#home" class="nav-link active">首页</a>
+                <a href="#drugs" class="nav-link">兽药大全</a>
+                <a href="#guide" class="nav-link">用药指南</a>
+                <a href="#faq" class="nav-link">常见问题</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- 主搜索区域 -->
+    <section class="hero" id="home">
+        <div class="container">
+            <h2 class="hero-title">专业兽药信息一站式查询平台</h2>
+            <p class="hero-subtitle">整合权威数据库、百度搜索、学术资料等多源信息</p>
+            
+            <div class="search-container">
+                <div class="search-tabs">
+                    <button class="tab-btn active" data-type="drug">兽药名称</button>
+                    <button class="tab-btn" data-type="symptom">症状/用途</button>
+                    <button class="tab-btn" data-type="ingredient">成分</button>
+                </div>
+                
+                <div class="search-box">
+                    <i class="ri-search-line"></i>
+                    <input type="text" id="searchInput" placeholder="请输入兽药名称、成分或症状，如：阿莫西林、驱虫、消炎...">
+                    <button id="searchBtn" class="search-btn">智能搜索</button>
+                </div>
+                
+                <!-- 搜索建议下拉框 -->
+                <div id="suggestions" class="suggestions-dropdown"></div>
+            </div>
+
+            <!-- 快速查询标签 -->
+            <div class="quick-tags">
+                <span>热门搜索：</span>
+                <button class="tag-btn" data-keyword="阿莫西林">阿莫西林</button>
+                <button class="tag-btn" data-keyword="伊维菌素">伊维菌素</button>
+                <button class="tag-btn" data-keyword="驱虫药">驱虫药</button>
+                <button class="tag-btn" data-keyword="消炎药">消炎药</button>
+                <button class="tag-btn" data-keyword="疫苗">疫苗</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- 搜索结果区域 -->
+    <main class="main-content container" id="resultsSection" style="display: none;">
+        <div class="results-grid">
+            <!-- 本地数据库结果 -->
+            <div class="results-panel local-db">
+                <div class="panel-header">
+                    <h3><i class="ri-database-2-line"></i> 权威兽药数据库</h3>
+                    <span class="source-tag">专业数据</span>
+                </div>
+                <div id="localResults" class="results-list"></div>
+            </div>
+
+            <!-- 百度搜索结果 -->
+            <div class="results-panel baidu-search">
+                <div class="panel-header">
+                    <h3><i class="ri-baidu-line"></i> 百度搜索结果</h3>
+                    <span class="source-tag">网络资料</span>
+                </div>
+                <div id="baiduResults" class="results-list"></div>
+                <div class="load-more">
+                    <button id="loadMoreBaidu" class="load-more-btn">加载更多搜索结果</button>
+                </div>
+            </div>
+
+            <!-- 学术资料 -->
+            <div class="results-panel academic">
+                <div class="panel-header">
+                    <h3><i class="ri-graduation-cap-line"></i> 学术/指南资料</h3>
+                    <span class="source-tag">研究文献</span>
+                </div>
+                <div id="academicResults" class="results-list"></div>
+            </div>
+        </div>
+    </main>
+
+    <!-- 兽药详情模态框 -->
+    <div id="drugModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modalTitle">兽药详情</h3>
+                <button class="close-btn">&times;</button>
+            </div>
+            <div id="modalBody" class="modal-body"></div>
+        </div>
+    </div>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>关于我们</h4>
+                    <p>专业的兽药信息查询平台，为兽医和养殖从业者提供权威、准确的药物信息。</p>
+                </div>
+                <div class="footer-section">
+                    <h4>数据来源</h4>
+                    <ul>
+                        <li>Plumb's Veterinary Drug Handbook</li>
+                        <li>中国兽药典</li>
+                        <li>百度搜索引擎</li>
+                        <li>兽医学术文献</li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="#">使用帮助</a></li>
+                        <li><a href="#">意见反馈</a></li>
+                        <li><a href="#">数据更新日志</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 兽药查询中心. All rights reserved. | 仅供参考，具体用药请咨询执业兽医</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
